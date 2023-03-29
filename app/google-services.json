@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "53814254634",
+    "firebase_url": "https://kotlin-firebase-319da-default-rtdb.firebaseio.com",
+    "project_id": "kotlin-firebase-319da",
+    "storage_bucket": "kotlin-firebase-319da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53814254634:android:39521f4919d4445f007753",
+        "android_client_info": {
+          "package_name": "com.example.holafirebase2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53814254634-imrvmvevhf3cg1mmkqrg295g96sibvms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKS_Iid5U5G8WQDioSimnsEe1Sf7IboT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53814254634-imrvmvevhf3cg1mmkqrg295g96sibvms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53814254634:android:72f7b149032ef787007753",
+        "android_client_info": {
+          "package_name": "com.example.nilo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53814254634-imrvmvevhf3cg1mmkqrg295g96sibvms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKS_Iid5U5G8WQDioSimnsEe1Sf7IboT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53814254634-imrvmvevhf3cg1mmkqrg295g96sibvms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53814254634:android:5595654efd78484d007753",
+        "android_client_info": {
+          "package_name": "com.example.nilopartner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53814254634-d3fffc1i8j775p28m4t9ubuo7a0ik1vl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nilopartner",
+            "certificate_hash": "ab89da0b3610e456a83eb12051e8b0e5d545ea7d"
+          }
+        },
+        {
+          "client_id": "53814254634-imrvmvevhf3cg1mmkqrg295g96sibvms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKS_Iid5U5G8WQDioSimnsEe1Sf7IboT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53814254634-imrvmvevhf3cg1mmkqrg295g96sibvms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
