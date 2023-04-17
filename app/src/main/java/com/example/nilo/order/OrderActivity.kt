@@ -8,14 +8,17 @@ import com.example.nilo.Constants
 import com.example.nilo.R
 import com.example.nilo.databinding.ActivityOrderBinding
 import com.example.nilo.entities.Order
+import com.example.nilo.track.TrackFragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
-class OrderActivity : AppCompatActivity(), OnOrderListener {
+class OrderActivity : AppCompatActivity(), OnOrderListener, OrderAux {
 
     private lateinit var  binding: ActivityOrderBinding
 
     private lateinit var adapter: OrderAdapter
+
+    private lateinit var orderSelected: Order
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,11 +60,19 @@ class OrderActivity : AppCompatActivity(), OnOrderListener {
     }
 
     override fun onTrack(order: Order){
+        orderSelected = order
 
+        val fragment = TrackFragment()
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.containerMain, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onStartChat(order: Order){
 
     }
 
+    override fun getOrderSelected(): Order = orderSelected
 }

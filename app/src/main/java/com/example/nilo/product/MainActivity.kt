@@ -1,5 +1,6 @@
 package com.example.nilo.product
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -14,6 +15,7 @@ import com.example.nilo.cart.CartFragment
 import com.example.nilo.databinding.ActivityMainBinding
 import com.example.nilo.detail.DetailFragment
 import com.example.nilo.entities.Product
+import com.example.nilo.order.OrderActivity
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
@@ -151,6 +153,7 @@ class MainActivity : AppCompatActivity(), OnProductListener, MainAux{
                         }
                     }
             }
+            R.id.action_order_history -> startActivity(Intent(this, OrderActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
