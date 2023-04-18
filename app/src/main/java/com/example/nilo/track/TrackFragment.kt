@@ -2,12 +2,18 @@ package com.example.nilo.track
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.nilo.Constants
+import com.example.nilo.R
 import com.example.nilo.databinding.FragmentTrackBinding
 import com.example.nilo.entities.Order
 import com.example.nilo.order.OrderAux
+import com.google.firebase.firestore.FirebaseFirestore
 
 class TrackFragment : Fragment() {
     private var binding: FragmentTrackBinding? = null
@@ -37,6 +43,10 @@ class TrackFragment : Fragment() {
 
         order?.let {
             updateUI(it)
+
+            getOrderInRealtime(it.id)
+
+            setupActionBar()
         }
     }
 
@@ -49,5 +59,56 @@ class TrackFragment : Fragment() {
             it.cbSent.isChecked = order.status > 2
             it.cbDelivered.isChecked = order.status > 3
         }
+    }
+
+    private fun getOrderInRealtime(orderId: String) {
+        val db = FirebaseFirestore.getInstance()
+
+        val orderRef = db.collection(Constants.COLL_REQUESTS).document(orderId)
+        orderRef.addSnapshotListener { snapshot, error ->
+            if (error != null) {
+                Toast.makeText(activity, "Error al consultar esta orden.", Toast.LENGTH_SHORT).show()
+                return@addSnapshotListener
+            }
+
+            if (snapshot != null && snapshot.exists()){
+                val order = snapshot.toObject(Order::class.java)
+                order?.let {
+                    it.id = snapshot.id
+
+                    updateUI(it)
+                }
+            }
+
+        }
+
+    }
+private fun setupActionBar(){
+    (activity as? AppCompatActivity)?.let {
+        it.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        it.supportActionBar?.title = getString(R.string.track_title)
+        setHasOptionsMenu(true)
+    }
+}
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == android.R.id.home){
+            activity?.onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
+    override fun onDestroy() {
+        (activity as? AppCompatActivity)?.let {
+            it.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            it.supportActionBar?.title = getString(R.string.order_title)
+            setHasOptionsMenu(false)
+        }
+
+        super.onDestroy()
     }
 }
